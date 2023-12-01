@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/insights.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgba(212, 140, 212, 0.411);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 2px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #af4c87;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a04582ef;
+        }
+
+        /* Thêm màu hồng nhạt cho nền */
+body {
+    background-color: #ffe4e1; /* Màu hồng nhạt */
+}
+
+/* Tùy chỉnh màu chữ và link trong thanh điều hướng */
+.custom-nav .navbar-brand,
+.custom-nav .nav-link {
+    color: #800080; /* Màu đỏ tím đậm */
+}
+
+/* Màu chữ cho phần chào mừng và form */
+.container {
+    color: #800080; /* Màu đỏ tím đậm */
+}
+
+/* Tùy chỉnh màu chữ cho các link */
+.container a {
+    color: #ff1493; /* Màu hồng đậm */
+}
+
+/* Màu chữ cho các link khi rê chuột vào */
+.container a:hover {
+    color: #c71585; /* Màu hồng nhạt khi rê chuột vào */
+}
+
+/* Thiết kế khung chứa phần chào mừng và form */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Màu trắng cho nền khung */
+    border-radius: 10px; /* Góc bo tròn */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+/* Thiết kế cho nút trong thanh điều hướng */
+.custom-nav .navbar-nav .nav-item .nav-link {
+    background-color: #800080; /* Màu đỏ tím đậm */
+    color: #fff; /* Màu chữ trắng */
+    border-radius: 5px; /* Góc bo tròn */
+}
+
+/* Thiết kế cho nút khi rê chuột vào */
+.custom-nav .navbar-nav .nav-item .nav-link:hover {
+    background-color: #c71585; /* Màu đỏ tím sáng khi rê chuột vào */
+}
+
+/* Chỉnh kiểu chữ và kích thước cho tiêu đề */
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Chỉnh kiểu chữ và kích thước cho đoạn văn bản */
+p {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+}
+/* Thêm một khoảng cách giữa thanh điều hướng và phần thêm nội dung */
+.custom-nav {
+    margin-bottom: 20px;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom-nav">
+        <a class="navbar-brand" href="./index.html">English</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./insights.html">Tìm kiếm</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Chức năng</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <h2>Thêm Nội Dung Mới</h2>
+        <form action="process.php" method="post">
+            <label for="phienam">Phiên Âm:</label>
+            <input type="text" name="phienam" required>
+            
+            <label for="loaitu">Loại Từ:</label>
+            <input type="text" name="loaitu" required>
+            
+            <label for="nghia">Nghĩa:</label>
+            <textarea name="nghia" rows="4" required></textarea>
+            
+            <label for="vidu">Ví Dụ:</label>
+            <textarea name="vidu" rows="4" required></textarea>
+            
+            <button type="submit">Thêm Nội Dung</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h2>Xóa Bản Ghi</h2>
+        <form action="xoa.php" method="post">
+            <label for="record_id">ID Bản Ghi Cần Xóa:</label>
+            <input type="text" name="record_id" required>
+            <button type="submit">Xóa Bản Ghi</button>
+        </form>
+    </div>
+</body>
+</html>
